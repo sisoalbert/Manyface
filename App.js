@@ -1,12 +1,16 @@
-import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 
-import Feed from './src/components/Feed';
+import Feed from './src/components/FeedAll';
 
 const App = () => {
   return (
     <SafeAreaView>
-      <Feed />
+      <ScrollView>
+        <Feed />
+        <Feed />
+        <Feed />
+      </ScrollView>
     </SafeAreaView>
   );
 };
