@@ -1,14 +1,45 @@
 import {Text, StyleSheet, View} from 'react-native';
 import React, {Component} from 'react';
+import withMetaAndControls from './FeedMetaAndControls';
 
-export default class Feed2x2 extends Component {
+class Feed2x2 extends Component {
   render() {
     return (
-      <View>
-        <Text>Feed2x2</Text>
-      </View>
+      <>
+        <Text style={styles.textPost}>{this.props.item.feed.text}</Text>
+        <View style={styles.gridContainer}>
+          {this.props.item.feed.images.slice(0, 4).map(e => (
+            <View>
+              <Image style={styles.imagePost} source={{uri: e}} />
+            </View>
+          ))}
+        </View>
+      </>
     );
   }
 }
 
-const styles = StyleSheet.create({});
+export default withMetaAndControls(Feed2x2);
+
+const styles = StyleSheet.create({
+  textPost: {
+    fontSize: 22,
+    marginBottom: 20,
+  },
+  imagePost: {
+    width: '100%',
+    aspectRatio: 4 / 3,
+    marginRight: 20,
+  },
+  gridContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  cell: {
+    width: '50%',
+    paddingRight: 12,
+    marginBottom: 12,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+});
