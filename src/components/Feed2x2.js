@@ -9,7 +9,7 @@ class Feed2x2 extends Component {
         <Text style={styles.textPost}>{this.props.item.feed.text}</Text>
         <View style={styles.gridContainer}>
           {this.props.item.feed.images.slice(0, 4).map(e => (
-            <View>
+            <View style={styles.cell}>
               <Image style={styles.imagePost} source={{uri: e}} />
             </View>
           ))}
@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   imagePost: {
     width: '100%',
     aspectRatio: 4 / 3,
-    marginRight: 20,
   },
   gridContainer: {
     flexDirection: 'row',
