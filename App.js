@@ -59,7 +59,10 @@ const App = () => {
 
   const scanForPeripherals = async () => {
     setLoadings(true);
-    EscPosPrinter.discover({scanningTimeoutAndroid: 20000})
+    EscPosPrinter.discover({
+      scanningTimeoutAndroid: 20000,
+      scanningTimeoutIOS: 20000,
+    })
       .then(printers => {
         console.log('printers', printers.length);
         console.log('printers', printers);
