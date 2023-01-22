@@ -1,13 +1,12 @@
-import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
-import Feed from './src/components/Feed';
+import {WebView} from 'react-native-webview';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Feed />
-    </SafeAreaView>
+    <View style={{flex: 1}}>
+      <WebView source={{uri: 'https://google.com'}} />
+    </View>
   );
 };
 
